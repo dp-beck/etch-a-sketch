@@ -1,11 +1,16 @@
 #buttons {
-    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
   }
   
   #container {
     display: grid;
-    height: 1000px;
-    width: 1000px;
+    height: 500px;
+    width: 500px;
     margin: auto;
     grid-template-columns: repeat(16, auto);
     grid-template-rows: repeat(16, auto);

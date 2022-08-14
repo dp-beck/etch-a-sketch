@@ -17,15 +17,19 @@ function randomColor() {
   return "#" + randomHex() + randomHex() + randomHex() + randomHex() + randomHex() + randomHex();
 }
 
+function turnToBlack() {
+  return "#000000";
+}
+
 function clearCells() {
-  var myElements = document.querySelectorAll(".cell");
+  let myElements = document.querySelectorAll(".cell");
   for (let i=0; i < myElements.length; i++) {
     myElements[i].style.backgroundColor = "white";
   }
 }
 
 function deleteCells() {
-  var myElements = document.querySelectorAll(".cell");
+  let myElements = document.querySelectorAll(".cell");
   for (let i=0; i < myElements.length; i++) {
     myElements[i].parentNode.removeChild(myElements[i]);
   }
@@ -33,11 +37,36 @@ function deleteCells() {
 
 function createGrid(){
   deleteCells();
-  var size = window.prompt("How many sides per square?","16");
+  while (true) {
+    var size = window.prompt("How many sides per square?","16");
+    if (size < 100) {
+      break;
+    }
+    alert("Please choose a number that is less than 100");
+  }
   document.getElementById("container").style.gridTemplateColumns = "repeat(" + size + ", auto)";
   document.getElementById("container").style.gridTemplateRows = "repeat(" + size + ", auto)";
   makeDivs(size*size);
 }
+
+function setRandomColorMode() {
+  clearCells();
+  container.removeEventListener('mouseover', function (e) {
+    e.target.style.background = turnToBlack()});
+
+  container.addEventListener('mouseover', function (e) {
+    e.target.style.background = randomColor()});
+}
+
+function setBlackMode() {
+  clearCells();
+  container.removeEventListener('mouseover', function (e) {
+    e.target.style.background = randomColor()});
+    
+  container.addEventListener('mouseover', function (e) {
+    e.target.style.background = turnToBlack()});
+}
+
 makeDivs(256);
 container.addEventListener('mouseover', function (e) {
-  e.target.style.background = randomColor ()});
+  e.target.style.background = randomColor()});
