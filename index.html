@@ -4,13 +4,17 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div id="buttons">
-            <button onclick = clearCells()>Clear This Grid</button>
-            <button onclick = createGrid()>Create a New Grid</button>
-            <button onclick = setBlackMode()>Switch to Black Mode</button>
-            <button onclick = setRandomColorMode()>Switch to Random Color Mode</button>
+        <h1>Etch-a-Sketch</h1>
+        <div id="flexBox">
+            <div id="buttons">
+                <button onclick = clearCells()>Clear</button>
+                <button onclick = createGrid()>New Grid</button>
+                <button onclick = setBlackMode()>Black Mode</button>
+                <button onclick = setRandomColorMode()>Rainbow Mode</button>
+                <button onclick = setFadeToBlackMode()>Fade to Black</button>
             </div>
-        <div id="container"></div>
+            <div id="container"></div>
+        </div>
     </body>
     <script src="js/script.js"></script>
 </html>
