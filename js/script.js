@@ -33,10 +33,10 @@ function createGrid(){
   deleteCells();
   while (true) {
     var size = window.prompt("How many sides per square?","16");
-    if (size < 100) {
+    if (0 < size < 100) {
       break;
     }
-    alert("Please choose a number that is less than 100");
+    alert("Please choose a positive number that is less than 100.");
   }
   document.getElementById("container").style.gridTemplateColumns = "repeat(" + size + ", auto)";
   document.getElementById("container").style.gridTemplateRows = "repeat(" + size + ", auto)";
